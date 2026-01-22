@@ -12,6 +12,7 @@
         <button class="filter-btn active" onclick="filterGallery('all')">All</button>
         <button class="filter-btn" onclick="filterGallery('nature')">Nature</button>
         <button class="filter-btn" onclick="filterGallery('city')">City</button>
+        <button class="filter-btn" onclick="filterGallery('tech')">Tech</button>
     </div>
 
     <div class="image-grid" id="image-grid">
@@ -23,7 +24,31 @@
             <img src="https://picsum.photos/id/103/800/600" alt="Cityscape" onclick="openLightbox(1)">
             <div class="overlay">City Lights</div>
         </div>
+        <div class="gallery-item tech">
+            <img src="https://picsum.photos/id/0/800/600" alt="Laptop" onclick="openLightbox(2)">
+            <div class="overlay">Modern Tech</div>
         </div>
+        <div class="gallery-item nature">
+            <img src="https://picsum.photos/id/11/800/600" alt="Lake" onclick="openLightbox(3)">
+            <div class="overlay">Serene Lake</div>
+        </div>
+        <div class="gallery-item city">
+            <img src="https://picsum.photos/id/122/800/600" alt="Bridge" onclick="openLightbox(4)">
+            <div class="overlay">Urban Bridge</div>
+        </div>
+        <div class="gallery-item tech">
+            <img src="https://picsum.photos/id/180/800/600" alt="Workspace" onclick="openLightbox(5)">
+            <div class="overlay">Workspace</div>
+        </div>
+        <div class="gallery-item nature">
+            <img src="https://picsum.photos/id/28/800/600" alt="Woods" onclick="openLightbox(6)">
+            <div class="overlay">Woods</div>
+        </div>
+        <div class="gallery-item city">
+            <img src="https://picsum.photos/id/234/800/600" alt="Paris" onclick="openLightbox(7)">
+            <div class="overlay">City Life</div>
+        </div>
+    </div>
 </div>
 
 <div id="lightbox" class="lightbox">
@@ -33,7 +58,7 @@
         <img id="lightbox-img" src="">
     </div>
     <button class="next" onclick="changeImage(1)">&#10095;</button>
-    <script src="./script.js"></script>
 </div>
+<script src="./script.js"></script>
 </body>
 </html>
