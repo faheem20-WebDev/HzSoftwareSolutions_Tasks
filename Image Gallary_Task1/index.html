@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Image Gallery</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="gallery-container">
+    <div class="filter-controls">
+        <button class="filter-btn active" onclick="filterGallery('all')">All</button>
+        <button class="filter-btn" onclick="filterGallery('nature')">Nature</button>
+        <button class="filter-btn" onclick="filterGallery('city')">City</button>
+    </div>
+
+    <div class="image-grid" id="image-grid">
+        <div class="gallery-item nature">
+            <img src="https://picsum.photos/id/10/800/600" alt="Forest" onclick="openLightbox(0)">
+            <div class="overlay">Nature View</div>
+        </div>
+        <div class="gallery-item city">
+            <img src="https://picsum.photos/id/103/800/600" alt="Cityscape" onclick="openLightbox(1)">
+            <div class="overlay">City Lights</div>
+        </div>
+        </div>
+</div>
+
+<div id="lightbox" class="lightbox">
+    <span class="close" onclick="closeLightbox()">&times;</span>
+    <button class="prev" onclick="changeImage(-1)">&#10094;</button>
+    <div class="lightbox-content">
+        <img id="lightbox-img" src="">
+    </div>
+    <button class="next" onclick="changeImage(1)">&#10095;</button>
+    <script src="./script.js"></script>
+</div>
+</body>
+</html>
