@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arthmetic Calculator</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="calculator">
+    <input type="text" name="number" id="result-screen"  readonly>
+    <div class="calculator-keys">
+        <button type="button" class="all-clear" value="all-clear" onclick="clearAll()">AC</button>
+        <button type="button" class="clear" value="clear" onclick="deleteOne()">C</button>
+        <button type="button" class="operator" value="%" onclick="appendToDisplay(this.value)">%</button>
+        <button type="button" class="operator" value="/" onclick="appendToDisplay(this.value)">&divide;</button>
+
+        <button type="button" value="9" id="numbervalue" onclick="appendToDisplay(this.value)">9</button>
+        <button type="button" value="8" id="numbervalue" onclick="appendToDisplay(this.value)">8</button>
+        <button type="button" value="7" id="numbervalue" onclick="appendToDisplay(this.value)">7</button>
+        <button type="button" class="operator" value="*" onclick="appendToDisplay(this.value)">&times;</button>
+        
+        <button type="button" value="6" id="numbervalue" onclick="appendToDisplay(this.value)">6</button>
+        <button type="button" value="4" id="numbervalue" onclick="appendToDisplay(this.value)">4</button>
+        <button type="button" value="5" id="numbervalue" onclick="appendToDisplay(this.value)">5</button>
+        <button type="button" class="operator" value="-" onclick="appendToDisplay(this.value)">-</button>
+        
+        <button type="button" value="3" id="numbervalue" onclick="appendToDisplay(this.value)">3</button>
+        <button type="button" value="2" id="numbervalue" onclick="appendToDisplay(this.value)">2</button>
+        <button type="button" value="1" id="numbervalue" onclick="appendToDisplay(this.value)">1</button>
+        <button type="button" class="operator" value="+" onclick="appendToDisplay(this.value)">+</button>
+        
+        <button type="button" value="00" id="numbervalue" onclick="appendToDisplay(this.value)">00</button>
+        <button type="button" value="0" id="numbervalue" onclick="appendToDisplay(this.value)">0</button>
+        <button type="button" class="decimal" id="numbervalue" value="." onclick="appendToDisplay(this.value)">.</button>
+        <button type="button" class="equal-sign operator" value="=" onclick="result()">=</button>
+    </div>
+    <script src="./script.js"></script>
+</body>
+</html>
