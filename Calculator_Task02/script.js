@@ -1,39 +1,67 @@
+// 
 let calculation = "";
 const screen = document.getElementById("result-screen");
 
-function clearAll(){
+// Clear all
+function clearAll() {
     calculation = "";
     screen.value = "";
+    screen.style.fontSize = "2rem";
 }
 
-function deleteOne(){
+// Delete one character
+function deleteOne() {
     calculation = calculation.slice(0, -1);
     screen.value = calculation;
 }
 
-function result(){
-    calculation = eval(calculation);
-    screen.value = calculation;
+// Calculate result with error handling
+function result() {
+    try {
+        if (calculation.trim() === "") return;
+        let res = eval(calculation);
+        if (!isFinite(res)) throw new Error("Math Error");
+        calculation = res.toString();
+        screen.value = calculation;
+
+        if (calculation.length > 8) {
+            screen.style.fontSize = "1.5rem";
+            screen.style.paddingRight = "5px";
+            screen.style.textAlign = "right";
+        }
+    } catch (err) {
+        screen.value = "Error";
+        calculation = "";
+    }
 }
+
+// Append value to display
 function appendToDisplay(value) {
     calculation += value;
     screen.value = calculation;
+    screen.style.fontSize = "2rem";
+    screen.style.paddingRight = "10px";
+    screen.style.textAlign = "right";
 }
-document.addEventListener("keydown", function(event){
-    if(event.key >= "0" && event.key <= "9" ||
-       event.key === "+" || event.key === "-" ||
-       event.key === "*" || event.key === "/" ||
-       event.key === "."){
-        calculation += event.key;
-        screen.value = calculation;
-    }
-    else if(event.key === "Enter"){
+
+// Keyboard support
+document.addEventListener("keydown", function(event) {
+    const key = event.key;
+
+    // Numbers and operators
+    if ((key >= "0" && key <= "9") || ["+", "-", "*", "/", "."].includes(key)) {
+        appendToDisplay(key);
+    } 
+    // Enter key -> =
+    else if (key === "Enter") {
         result();
-    }
-    else if(event.key === "Backspace"){
+    } 
+    // Backspace key -> delete
+    else if (key === "Backspace") {
         deleteOne();
-    }
-    else if(event.key === "Escape"){
+    } 
+    // Escape key -> clear
+    else if (key === "Escape") {
         clearAll();
     }
 });
