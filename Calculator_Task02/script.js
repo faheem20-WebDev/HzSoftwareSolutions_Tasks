@@ -1,4 +1,3 @@
-// 
 let calculation = "";
 const screen = document.getElementById("result-screen");
 
@@ -44,24 +43,47 @@ function appendToDisplay(value) {
     screen.style.textAlign = "right";
 }
 
-// Keyboard support
+// 🔥 Visual press effect function
+function highlightButton(value) {
+    const buttons = document.querySelectorAll("button");
+    buttons.forEach(btn => {
+        if (btn.value === value || (value === "Enter" && btn.value === "=")) {
+            btn.classList.add("active-key");
+            setTimeout(() => btn.classList.remove("active-key"), 150);
+        }
+        if (value === "Backspace" && btn.classList.contains("clear")) {
+            btn.classList.add("active-key");
+            setTimeout(() => btn.classList.remove("active-key"), 150);
+        }
+        if (value === "Escape" && btn.classList.contains("all-clear")) {
+            btn.classList.add("active-key");
+            setTimeout(() => btn.classList.remove("active-key"), 150);
+        }
+    });
+}
+
+// Keyboard support with UI feedback
 document.addEventListener("keydown", function(event) {
     const key = event.key;
 
     // Numbers and operators
     if ((key >= "0" && key <= "9") || ["+", "-", "*", "/", "."].includes(key)) {
         appendToDisplay(key);
+        highlightButton(key);
     } 
     // Enter key -> =
     else if (key === "Enter") {
         result();
+        highlightButton("Enter");
     } 
     // Backspace key -> delete
     else if (key === "Backspace") {
         deleteOne();
+        highlightButton("Backspace");
     } 
     // Escape key -> clear
     else if (key === "Escape") {
         clearAll();
+        highlightButton("Escape");
     }
 });
